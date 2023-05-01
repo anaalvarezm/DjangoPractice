@@ -1,0 +1,12 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+  <h1>Comments</h1>
+  <ul>
+    {% for comment in comments %}
+      <li>{{ comment.title }} - {{ comment.text }}</li>
+    {% empty %}
+      <li>No comments yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
