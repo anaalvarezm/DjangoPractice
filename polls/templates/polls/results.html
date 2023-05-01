@@ -1,10 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <style>
+        body {
+            background-color: #b8d6e0; /* #ADD8E6 or #cceefd light blue */
+        }
+
+
+        h1 {
+            font-family: 'Helvetica Rounded', 'Arial Rounded MT Bold', sans-serif;
+            font-weight: bolder;
+            text-align: center;
+            font-size: 60px;
+        }
+        a {
+            background: linear-gradient(to bottom, #fcfcfc 0%, #e6e6e6 100%);
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        
+        }
+
+        li {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+</html>
+
 
 <h1>{{ question.question_text }}</h1>
 
 <ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% for choice in question.choice_set.all %} <br> 
+    <li>  {{ choice.choice_text }} &rarr;  {{ choice.votes }} vote{{ choice.votes|pluralize }}   </li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<div class="button-container">
+    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+</div>

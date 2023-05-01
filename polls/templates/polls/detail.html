@@ -1,3 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <style>
+        body {
+            background-color: #b8d6e0; /* #ADD8E6 or #cceefd light blue */
+        }
+
+        h1 {
+                font-family: 'Helvetica Rounded', 'Arial Rounded MT Bold', sans-serif;
+                font-weight: bolder;
+                text-align: center;
+                font-size: 60px;
+            }
+
+         /*   
+        form {
+            text-align: center;
+        } */
+
+        input[type=submit] {
+            background: linear-gradient(to bottom, #fcfcfc 0%, #e6e6e6 100%);
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+
+        input[type=submit]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            margin-right: 10px;
+            outline: none;
+        }
+        input[type="radio"]:checked {
+            background-color: #333333;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
@@ -9,5 +88,10 @@
         <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
     {% endfor %}
 </fieldset>
-<input type="submit" value="Vote">
+<div class="button-container">
+    <input type="submit" value="Vote">
+</div>
+
 </form>
+
+</html>
